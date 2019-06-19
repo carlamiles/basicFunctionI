@@ -1,0 +1,336 @@
+Correct: 12 / 15
+
+function a(){
+    return 35;
+}
+console.log(a())
+
+Prediction
+
+var         val                     console
+a()         35                      35
+
+Actual output
+35
+=> undefined
+
+
+function a(){
+    return 4;
+}
+console.log(a()+a());
+
+Prediction
+
+var         val                     console
+a()         4                       8
+                                    => undefined
+
+Actual output
+8
+=> undefined
+
+function a(b){
+    return b;
+}
+console.log(a(2)+a(4));
+
+Prediction
+
+var         val                     console
+a(b)        b
+a(2)        2
+a(4)        4                       6
+                                    =>undefined
+
+Actual output
+6
+=> undefined
+
+function a(b){
+    console.log(b);
+    return b*3;
+}
+console.log(a(3));
+
+Prediction
+
+var         val                     console
+a(b)        b*3
+b           3                       3
+                                    9
+                                    =>undefined
+
+Actual output
+3
+9
+=> undefined
+
+function a(b){
+   return b*4;
+   console.log(b);
+}
+console.log(a(10));
+
+Prediction
+
+var         val                     console
+a(b)        b*4
+b           10                      40
+                                    =>undefined
+
+Actual output
+40
+=> undefined
+
+function a(b){
+    if(b<10) {
+        return 2;
+    }
+    else     {
+        return 4;
+    }
+    console.log(b);
+}
+console.log(a(15));
+
+Prediction
+
+var         val                     console
+a           15                      4
+                                    =>undefined
+
+Actual output
+4
+=> undefined
+
+function a(b,c){
+    return b*c;
+}
+console.log(10,3);
+console.log( a(3,10) );
+
+Prediction
+
+var         val                     console
+a(b,c)      b*c                     10 3
+
+b           3
+c           10                       30
+                                    =>undefined
+
+Actual output
+10 3
+30
+=> undefined
+
+function a(b){
+    for(var i=0; i<10; i++){
+        console.log(i);
+    }
+    return i;
+}
+console.log(3);
+console.log(4);
+
+Prediction
+
+var         val                     console
+                                    3
+                                    4
+                                    =>undefined
+
+Actual output
+3
+4
+=> undefined
+
+function a(){
+    for(var i=0; i<10; i++){
+        i = i +2;
+        console.log(i);
+    }
+}
+a();
+
+Prediction
+
+var         val                     console
+i           0
+i           2                       2
+i           3
+i           5                       5
+i           6
+i           8                       8
+i           9
+i           11      
+
+Actual output
+2
+5
+8
+11
+=> undefined
+
+function a(b,c){
+    for(var i=b; i<c; i++) {
+       console.log(i);
+   }
+   return b*c;
+}
+a(0,10);
+console.log(a(0,10));
+
+Prediction
+
+var         val                     console
+b           0
+c           10
+i           0       i < c(10)       0
+i           1                       1
+i           2                       2
+i           3                       3
+i           4                       4
+i           5                       5
+i           6                       6
+i           7                       7
+i           8                       8
+i           9                       9
+i           10
+                                    =>0
+
+                                    0
+                                    1
+                                    2
+                                    3
+                                    4
+                                    5
+                                    6
+                                    7
+                                    8
+                                    9
+                                    0
+                                    =>undefined
+
+Actual output
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+0
+=> undefined
+
+function a(){
+    for(var i=0; i<10; i++){
+       for(var j=0; j<10; j++){
+           console.log(j);
+       }
+       console.log(i);
+    }
+}
+
+Prediction
+
+var         val                     console
+function isn't called               =>undefined
+
+Actual output
+=> undefined
+
+function a(){
+    for(var i=0; i<10; i++){
+        for(var j=0; j<10; j++){
+            console.log(i,j);
+        }
+        console.log(j,i);
+    }
+}
+
+Prediction
+
+var         val                     console
+function isn't called               =>undefined
+
+Actual output
+=> undefined
+
+var z = 10;
+function a(){
+    var z = 15;
+    console.log(z);
+}
+console.log(z);
+
+
+Prediction
+
+var         val                     console
+z           10                      10
+
+Actual output
+10
+=> undefined
+
+var z = 10;
+function a(){
+    var z = 15;
+    console.log(z);
+}
+a();
+console.log(z);
+
+Prediction
+
+var         val                     console
+z           10
+z           15                      15
+                                    15
+                                    =>undefined
+
+Actual output
+15
+10
+=> undefined
+
+var z = 10;
+function a(){
+    var z = 15;
+    console.log(z);
+    return z;
+}
+z = a();
+console.log(z);
+
+Prediction
+
+var         val                     console
+z           10
+in function
+z           15
+
+z           a()
+a()                                 15
+                                    15
+                                    15
+                                    =>undefined
+
+Actual output
+15
+15
+=> undefined
